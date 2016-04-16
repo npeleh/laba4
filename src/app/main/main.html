@@ -1,0 +1,42 @@
+<div id="main">
+  <div class="container">
+        <div class="header clearfix">
+          <nav>
+            <ul class="nav nav-pills pull-right">
+              <li role="presentation" class="active"><a href="#/">Home</a></li>
+              <li role="presentation"><a href="#/">About</a></li>
+              <li role="presentation"><a href="#/">Загалом: {{main.sum_price | currency}}</a></li>
+            </ul>
+          </nav>
+          <h3 class="text-muted">Project name</h3>
+        </div>
+
+        <div class="jumbotron">
+          <h1>Магазин Тюльпанів</h1>
+          <img ng-src="assets/flowers/panoram.jpg" class="img-responsive">
+          <p>
+            Тут Ви зможете купити тюльпани на будь-який смак.
+          </p>
+        </div>
+
+        <div class="row marketing">
+          <div class="col-lg-6" ng-repeat="flower in main.flowers">
+            <div class="well-lg well">
+              <img ng-src="{{flower.image}}" class="img-responsive img-rounded">
+              <h4>Subheading </h4>
+              <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+              <button class="btn btn-default btn-success" ng-hide="flower.is_bouth" ng-click="main.buy($index)">Купити</button>
+              <button class="btn btn-default btn-success" ng-show="flower.is_bouth">
+                <span class="glyphicon glyphicon-ok"></span>
+              </button>
+              {{flower.price | currency}}
+            </div>
+          </div>
+        </div>
+
+        <footer class="footer">
+          <p>© 2015 Company, Inc.</p>
+        </footer>
+
+      </div>
+</div>
